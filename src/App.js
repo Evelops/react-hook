@@ -1,21 +1,15 @@
-import React,{Component,useState} from 'react';
+import React,{useState} from 'react';
 import './App.css';
 
 const App = () =>{
   const [value,setCount]=useState(0);
-  const [email,setEmail]=useState("");
-  const updateEmail = e =>{
-    const {
-      target:{value}
-    } = e;
-    setEmail(value);
-  };
+  const Plus =() =>{setCount(value+1);};
+  const Minus =() =>{setCount(value-1);};
+
   return(
     <>
-    {value}
-    <button onClick={()=> setCount(value+1)}>Plus</button>
-    <button onClick={()=>setCount(value-1)}>Minus</button>
-    <input placeholder="Email" value={email} onchange={updateEmail}/>
+    <button onClick={Plus}>Plus</button>
+    <button onClick={Minus}>Minus</button>
     </>
   );
 };
