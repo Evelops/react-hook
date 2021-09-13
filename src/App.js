@@ -1,15 +1,20 @@
 import React,{useState} from 'react';
-import './App.css';
+import './Input';
+import Input from './App.css';
 
 const App = () =>{
-  const [value,setCount]=useState(0);
+  const [value,setCount]=useState(0); //useStaet react hooks 개념 활용.
   const Plus =() =>{setCount(value+1);};
   const Minus =() =>{setCount(value-1);};
 
   return(
     <>
+    <div>
+    <h1>Hello! {value}</h1>
     <button onClick={Plus}>Plus</button>
     <button onClick={Minus}>Minus</button>
+    </div>
+    <Input/>
     </>
   );
 };
