@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
-import './Input';
-import Input from './App.css';
+import Input from './Input';
+import './App.css';
 
 const App = () =>{
   const [value,setCount]=useState(0); //useStaet react hooks 개념 활용.
