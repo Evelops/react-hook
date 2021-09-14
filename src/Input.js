@@ -1,15 +1,26 @@
 import React, {useState} from 'react';
 
-const useInput= initalValue => {
-    const [value] = useState(initalValue);
-    const onClick = () => {
-        console.log(value);
+//input react hooks 
+const useInput= (initalValue,validator) => {
+    const [value,setValue] = useState(initalValue);
+    const onChange = (event) => {
+        const{
+            target:{value}
+        } = event;
+        let willUpdate=true;
+        if(typeof validator ==="function"){
+            willUpdate = validator(value);
+        }
+        if(willUpdate){
+            setValue(value);
+        }
     }
-    return {value,onClick};
+    return {value,onChange};
 }
 
-const Input = () =>{
-    const name = useInput("Mr.");
+const Input = () =>{ 
+    const maxLen = value => value.length <= 10;
+    const name = useInput("Mr.",maxLen);
     return (
         <div>
             <input placeholder="Name" {...name}/>
